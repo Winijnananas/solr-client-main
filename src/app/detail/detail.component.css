@@ -6,9 +6,9 @@ body{
 .card {
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: #edf1f5;
-    border: 1px solid ;
-    border-radius: 10;
+    background-color: #f0f0f0;
+    border: 0px solid ;
+    border-radius: 30;
 }
 
 .head {
