@@ -15,9 +15,9 @@ export class IndexComponent {
   };
   numfound: any;
   book: any[] = [];
-  facetFam:facetDisplay[] = [];
   facetAuthor: facetDisplay[] = [];
   facetPublisher: facetDisplay[] = [];
+  facetfamily_name: facetDisplay[] = [];
   constructor(private http: HttpClient) {}
   form: FormGroup = new FormGroup({
     keyword: new FormControl('', Validators.required),
@@ -50,11 +50,11 @@ export class IndexComponent {
  //botanical_characteristics
  //faceBota
  addFamFacet(Famlist: any) {
-  this.facetFam=[];
+  this.facetfamily_name=[];
   for (let i = 0; i < Famlist.length; i++) {
     const element = Famlist[i];
     if (i % 2 === 0) {
-      this.facetFam.push({ data: element, count: Famlist[i + 1] });
+      this.facetfamily_name.push({ data: element, count: Famlist[i + 1] });
     }
   }
 }
