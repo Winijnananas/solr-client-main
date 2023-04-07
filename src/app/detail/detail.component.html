@@ -1,18 +1,43 @@
-<p>detail is working!</p>
-<div *ngFor="let item of book; let i = index">
-    <h2>{{ item.name }}</h2>
-    <ul>
-      <li>Scientific Name: {{ item.scientific_name }}</li>
-      <li>Family Name: {{ item.family_name }}</li>
-      <li>Other Names: {{ item.othername }}</li>
-      <li>Other Names: {{ item.character }}</li>
-      <li>Botanical Characteristics: {{ item.botanical_characteristics }}</li>
-      <li>Flowering Period: {{ item.flowering_period }}</li>
-      <li>Properties: {{ item.properties }}</li>
-    </ul>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div *ngFor="let item of book; let i = index">
+  <div class="container">
+    <div class="card">
+      <div class="card-body" >
+        <div class="row">
+         
+          <div class="col-5 d-flex justify-content-center ">
+            <img src="https://t4.ftcdn.net/jpg/04/72/65/73/360_F_472657366_6kV9ztFQ3OkIuBCkjjL8qPmqnuagktXU.jpg" class="rounded">
+          </div>
+          <div class="col-7"> 
+              <button type="button" class="btn btn-danger" onclick="history.back()">Back</button>
+              <p class="head">
+                {{ item.name }}
+              </p>
+              <div class="subhead">Scientific Name (ชื่อวิทยาศาสตร์)</div><p> {{ item.scientific_name }}</p>
+              <div class="subhead">Family Name (ชื่อวงศ์)</div><p> {{ item.family_name }}</p>
+              <div class="subhead">Other Names (ชื่ออื่นๆ)</div><p> {{ item.othername }}</p>
+              <hr/>
+              <p class="subtitle">
+                รายละเอียดพืชสมุนไพร
+              </p>
+              <div class="subhead">Characteristics (ลักษณะวิสัย)</div><p> {{ item.character }}</p>
+              <div class="subhead">Botanical Characteristics (ลักษณะทางพฤกษศาสตร์)</div><p> {{ item.botanical_characteristics }}</p>
+              <div class="subhead">Flowering Period (ช่วงเวลาการออกดอก)</div><p> {{ item.flowering_period }}</p>
+              <div class="subhead">Properties (สรรพคุณ)</div><p> {{ item.properties }}</p>
+              
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+<div *ngIf="isLoading">
+  <p>Loading...</p>
+</div>
   
-  <div *ngIf="isLoading">
-    <p>Loading...</p>
-  </div>
-  
+</body>

@@ -1,0 +1,31 @@
+body{
+    background-color: #ffffff;
+    padding-top: 36px;
+    font-family: Mitr;
+}
+.card {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #edf1f5;
+    border: 1px solid ;
+    border-radius: 10;
+}
+
+.head {
+    font-size: 36px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+.subhead{
+    font-weight: bold;
+    font-size: 18px;
+}
+.subtitle {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    color: forestgreen;
+}
+p{
+    font-size: 18px;
+}
