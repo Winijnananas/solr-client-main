@@ -113,30 +113,25 @@ export class DetailComponent   {
   };
   numfound:any;
   book:any[] = [];
-  detail: any={};
+  plant:any={};
   isLoading = true;
 
   constructor(private http: HttpClient,private route:ActivatedRoute){}
 
   ngOnInit(){
     this.route.params.subscribe(params=>{
-      const id_detail = params['id'];
-      this.getDataByID(id_detail)
+      const id = params['id'];
+      this.getDataByID(id)
     });
   }
-
-  
   getDataByID(id:string){
-    this.detail =[];
-    let baseUrl = `http://localhost:8080/getbyid/` + id;
+    this.book =[];
+    let baseUrl = `http://localhost:8080/getbyid/`+id ;
     axios.get(baseUrl)
     .then((response)=>{
-      this.detail = response.data.response.docs;
+      this.book = response.data.response.docs;
       this.isLoading = false;
     })
     .catch(error =>console.error(error));
-  
-    
   }
- 
 }

@@ -1,13 +1,14 @@
 <p>detail is working!</p>
-<div *ngIf="!isLoading">
-    <h2>{{ detail.name }}</h2>
+<div *ngFor="let item of book; let i = index">
+    <h2>{{ item.name }}</h2>
     <ul>
-      <li>Scientific Name: {{ detail.scientific_name }}</li>
-      <li>Family Name: {{ detail.family_name }}</li>
-      <li>Other Names: {{ detail.othername }}</li>
-      <li>Botanical Characteristics: {{ detail.botanical_characteristics }}</li>
-      <li>Flowering Period: {{ detail.flowering_period }}</li>
-      <li>Properties: {{ detail.properties }}</li>
+      <li>Scientific Name: {{ item.scientific_name }}</li>
+      <li>Family Name: {{ item.family_name }}</li>
+      <li>Other Names: {{ item.othername }}</li>
+      <li>Other Names: {{ item.character }}</li>
+      <li>Botanical Characteristics: {{ item.botanical_characteristics }}</li>
+      <li>Flowering Period: {{ item.flowering_period }}</li>
+      <li>Properties: {{ item.properties }}</li>
     </ul>
   </div>
   

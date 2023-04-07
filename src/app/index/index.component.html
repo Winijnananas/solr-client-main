@@ -7,7 +7,9 @@
   <a [routerLink]="['/home']"><span class="navbar-brand mb-0 h1">WU Bionical </span></a>
   <form class="col-10 col-lg-auto mb-2 mb-lg-0 me-lg-2" [formGroup]="form" (ngSubmit)="submit()">
     <input formControlName="keyword" type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+    
   </form>
+  <button class="btn btn-success" type="submit">Search</button>
 </nav>
 <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2">
         <div class="container-fluid">
@@ -33,7 +35,7 @@
           <div class="col-12">
             <h6 class=""></h6> <h6 class="btn btn-success">  {{numfound|number}} ชนิด</h6>
             <table class="table">
-              <thead class="thead-dark">
+              <thead class="bg-success text-white">
                 <tr>
                   <th scope="col" >อันดับ</th>
                   <th scope="col">ชื่อ</th>

@@ -30,6 +30,8 @@ export class IndexComponent {
     if (this.form.valid) {
       this.search(this.form.controls['keyword'].value);
     }
+    else
+    this.search('*');
   }
   search(keyword: string) {
  
