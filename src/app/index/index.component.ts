@@ -15,9 +15,11 @@ export class IndexComponent {
   };
   numfound: any;
   book: any[] = [];
+  facetFam: facetDisplay[] = [];
   facetAuthor: facetDisplay[] = [];
   facetPublisher: facetDisplay[] = [];
-  facetfamily_name: facetDisplay[] = [];
+  facetname: facetDisplay[] = [];
+  isLoading =true;
   constructor(private http: HttpClient) {}
   form: FormGroup = new FormGroup({
     keyword: new FormControl('', Validators.required),
@@ -40,21 +42,31 @@ export class IndexComponent {
       this.book = response.response.docs;
       this.numfound= response.response.numFound;
       try {
-        // this.addAuthorFacet(response.facet_counts.facet_fields.author);
-        // this.addPublisherFacet(response.facet_counts.facet_fields.publisher);
-        this.addFamFacet(response.facet_counts.facet_fields.family_name);
+        this.addAuthorFacet(response.facet_counts.facet_fields.author);
+        this.addPublisherFacet(response.facet_counts.facet_fields.publisher);
+        this.addName(response.facet_counts.facet_fields.name);
+        this.addFamily(response.facet_counts.facet_fields.family_name);
       } catch (error) {}
     });
   }
 
  //botanical_characteristics
  //faceBota
- addFamFacet(Famlist: any) {
-  this.facetfamily_name=[];
-  for (let i = 0; i < Famlist.length; i++) {
-    const element = Famlist[i];
+ addFamily(FamList: any) {
+  this.facetFam=[];
+  for (let i = 0; i < FamList.length; i++) {
+    const element = FamList[i];
     if (i % 2 === 0) {
-      this.facetfamily_name.push({ data: element, count: Famlist[i + 1] });
+      this.facetFam.push({ data: element, count: FamList[i + 1] });
+    }
+  }
+}
+ addName(Namelist: any) {
+  this.facetname=[];
+  for (let i = 0; i < Namelist.length; i++) {
+    const element = Namelist[i];
+    if (i % 2 === 0) {
+      this.facetname.push({ data: element, count: Namelist[i + 1] });
     }
   }
 }
@@ -109,6 +121,8 @@ export interface Doc {
   pubyear: string;
   _version_: any;
   publisher_index: string;
+  family_name:string;
+  name:string;
 }
 
 export interface Response {
@@ -121,7 +135,10 @@ export interface Response {
 export interface FacetQueries {}
 
 export interface FacetFields {
-  family_name:any[];
+  family_name: {[key: string]: any};
+  name: {[key: string]: any};
+  author: any[];
+  publisher: any[];
 }
 
 export interface FacetRanges {}
